@@ -1,0 +1,21 @@
+[
+    {
+        "id":1,
+        "title":"bread",
+        "price":7.99,
+        "image":"bread.png"
+    },
+    {
+        "id":4,
+        "title":"Coca Cola",
+        "price":7.99,
+        "image":"bread.png"
+    },
+    {
+        "id":2,
+        "title":"Milk",
+        "price":7.99,
+        "image":"bread.png"
+    }
+
+]

@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import { Route, Router, Routes } from 'react-router-dom';
+import NewList from './pages/NewList';
+import { Product } from './Types';
 
 function App() {
+
+  const [myList,setMyList] = useState<Product[]>([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>      
+
+      <main>
+
+        <Routes>
+          <Route path='/new-list' element={<NewList setMyList={setMyList} />} />
+          <Route path='/' element={<Home myList={myList} />} />
+        </Routes>
+       
+      </main>
+
+      <footer>
+        Gal
+      </footer>
     </div>
   );
 }
