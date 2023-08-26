@@ -14,7 +14,7 @@ const Home:React.FC<Props> = ({myList}) => {
       <h2 className='page-title'>List Name</h2>
 
        {myList && myList.map(product => (
-        <div className='list-item' key={product.id}>
+        <div className='list-item' key={product._id}>
             <div className="list-item__data">
               <img src={ProductDefault} alt="default Image" width={50} />
               <p>{product.title}</p>
