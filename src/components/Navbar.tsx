@@ -1,4 +1,5 @@
 import React from 'react'
+import NavMenu from './NavMenu'
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       <h3>Shopping List</h3>
 
       <div>
-        Hamburger
+        <NavMenu/>
       </div>
     </nav>
   )
