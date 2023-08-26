@@ -1,4 +1,21 @@
-@import url('./_navbar.scss');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&display=swap');
+
+
+//fonts 
+$main-font:'Rubik', sans-serif;
+
+// font-weigth
+$font-light:300;
+$font-regular:400;
+$font-bold:700;
+$font-black:000;
+
+// colors
+$blue:#1d3557;
+$red:#e63946;
+$light-blue:#778da9;
+
+
 
 *{
     padding: 0;
@@ -11,15 +28,44 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: $main-font;
 
 
     main{
         min-height: 80vh;
-        background-color: red;
     }
 
     footer{
+        border-top: 0.5px solid gray;
         height: 10vh;
-        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
+
+
+
+// buttons
+
+.btn{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    &:hover{
+        background-color: white;
+        color: red;
+        border: 1px solid white;
+    }
+}
+
+@import url('./_navbar.scss');
+@import url('./_home.scss');

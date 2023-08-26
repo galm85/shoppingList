@@ -1,0 +1,35 @@
+.home-page{
+    height: 100%;
+    width: 100%;
+
+    .page-title{
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .list-item{
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+
+        &__data{
+            display: flex;
+            align-items: center;
+            flex:1;
+
+            img{
+                width: 50px;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+
+            p{
+                font-size: 18px;
+                color: #778da9;
+            }
+        }
+
+        &__actions{
+        }
+    }
+}
