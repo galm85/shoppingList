@@ -2,7 +2,14 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <nav className='navbar'>
+
+      <h3>Shopping List</h3>
+
+      <div>
+        Hamburger
+      </div>
+    </nav>
   )
 }
 

@@ -1,0 +1,25 @@
+@import url('./_navbar.scss');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.App{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+
+    main{
+        min-height: 80vh;
+        background-color: red;
+    }
+
+    footer{
+        height: 10vh;
+        background-color: aqua;
+    }
+}
