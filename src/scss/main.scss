@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&display=swap');
 
-
 //fonts 
 $main-font:'Rubik', sans-serif;
 
@@ -14,6 +13,9 @@ $font-black:000;
 $blue:#1d3557;
 $red:#e63946;
 $light-blue:#778da9;
+
+
+
 
 
 
@@ -45,6 +47,15 @@ $light-blue:#778da9;
 }
 
 
+/////////////////////////////////////////////
+////        General Classes               ////
+/////////////////////////////////////////////
+
+.page-title{
+    text-align: center;
+    margin: 20px 0;
+}
+
 
 // buttons
 
@@ -67,5 +78,21 @@ $light-blue:#778da9;
     }
 }
 
-@import url('./_navbar.scss');
-@import url('./_home.scss');
+.save-btn{
+    background-color: $blue;
+    color: white;
+}
+
+
+
+
+/////////////////////////////////////////////
+////        Imports               ////
+/////////////////////////////////////////////
+
+
+@import './_navbar.scss';
+@import './home';
+@import './newList';
+
+
