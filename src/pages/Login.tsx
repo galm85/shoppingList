@@ -2,9 +2,9 @@ import React, { FormEvent, useState } from 'react'
 import { User } from '../Types'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { registerUser } from '../redux/actions/usersActions';
+import { signinUser } from '../redux/actions/usersActions';
 
-const Register = () => {
+const Login = () => {
 
     const [user,setUser] = useState<User>({} as User);
     const [error,setError] = useState<User>({} as User);
@@ -31,21 +31,21 @@ const Register = () => {
             errors.password ='הכנס סיסמה';
             validate = false;
         }
-   
+        console.log(errors);
 
         setError(errors);
 
         if(validate){
-           
-            dispatch(registerUser(user));
-           
+          
+               dispatch(signinUser(user));
+            
         }
 
     }
 
   return (
     <div className='page'>
-        <h2>הרשם</h2>
+        <h2>התחבר</h2>
 
         <form onSubmit={handleSubmit}>
             <div className="input-group">
@@ -58,15 +58,6 @@ const Register = () => {
                 <input type="password" name="password" id="password" onChange={handleChange} autoComplete='off' />
                 <div>{error.password}</div>
             </div>
-            <div className="input-group">
-                <label htmlFor="avatar">תמונה</label>
-                <select name="avatar" id="avatar">
-                    <option value="1">Lion</option>
-                    <option value="2">King</option>
-                    <option value="1">Queen</option>
-                </select>
-                <span></span>
-            </div>
             <div>
                 <button type='submit'>שמור</button>
                 <button type='button'>בטל</button>
@@ -76,4 +67,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Login

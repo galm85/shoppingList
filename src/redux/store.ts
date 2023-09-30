@@ -5,10 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 //reducers
 import { productReducer } from './reducers/productsReducer';
+import { userReducer } from './reducers/usersReducer';
 
-export type MainState = {
-    productReducer:any,
-}
+
+
 
 
 const middleware = [thunk];
@@ -16,7 +16,8 @@ const initialState = {};
 
 
 const rootReducer = combineReducers({
-    productReducer
+    productReducer,
+    userReducer
 });
 
 

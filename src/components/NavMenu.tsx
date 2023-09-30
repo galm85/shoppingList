@@ -10,11 +10,16 @@ import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/actions/usersActions';
+
+
 
 export default function NavMenu() {
 
   const navigate:any = useNavigate();
   const [openMenu,setOpenMenu] = React.useState<boolean>(false);
+  const dispatch:any = useDispatch();
 
   const navigateTo = (url:string)=>{
     setOpenMenu(false);
@@ -66,6 +71,14 @@ export default function NavMenu() {
                       <HomeIcon/>
                   </ListItemIcon>
                   <ListItemText primary={'הוסף מוצר'} />
+                  </ListItemButton>
+              </ListItem>
+              <ListItem onClick={()=>dispatch(logout())}>
+                <ListItemButton>
+                  <ListItemIcon>
+                      <HomeIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary={'התנתק'} />
                   </ListItemButton>
               </ListItem>
           </List>

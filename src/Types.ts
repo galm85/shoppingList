@@ -22,3 +22,25 @@ export type User = {
     createdAt?:string;
     updatedAt?:string;
 }
+
+
+
+
+// redux types
+export type Action = {
+    type:string;
+    payload?:any;
+}
+
+export type MainState = {
+    productReducer:ProductReducer;
+    userReducer:UserReducer;
+}
+
+export type UserReducer = {
+    user:any;
+}
+
+export type ProductReducer = {
+    products:[];
+}
