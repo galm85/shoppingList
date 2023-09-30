@@ -61,7 +61,7 @@ export default function NavMenu() {
                   <ListItemText primary={'רשימה חדשה'} />
                   </ListItemButton>
               </ListItem>
-              <ListItem onClick={()=>navigateTo('/new-list')}>
+              <ListItem onClick={()=>navigateTo('/my-lists')}>
                 <ListItemButton>
                   <ListItemIcon>
                       <HomeIcon/>

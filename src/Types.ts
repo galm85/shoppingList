@@ -1,15 +1,14 @@
 export type Product = {
-
     _id:string;
     title:string;
-    price?:number;
     image:string;
+    cloudinary_id?:string;
 }
 
 
 export type List = {
     _id?:number;
-    products:Product[];
+    items:ListItem[];
     listName:string;
 }
 
@@ -25,6 +24,14 @@ export type User = {
 }
 
 
+export type ListItem = {
+    _id:string;
+    title:string;
+    image:string;
+    cloudinary_id?:string;
+    checked?:boolean;
+}
+
 
 
 
@@ -37,6 +44,7 @@ export type Action = {
 export type MainState = {
     productReducer:ProductReducer;
     userReducer:UserReducer;
+    listReducer:ListReducer;
 }
 
 export type UserReducer = {

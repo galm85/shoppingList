@@ -16,3 +16,34 @@ export const saveNewList = (list:any)=>async(dispatch:any)=>{
         console.log(e);
     }
 }
+
+
+
+export const getAllLists = (userId:string)=>async(dispatch:any)=>{
+
+    try {
+        const res = await axios.get(`${api}/lists/all-list-by-user/${userId}`);
+        dispatch({
+            type:'getAllLists',
+            payload:res.data
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+
+export const getSingleList = (listId:string)=>async(dispatch:any)=>{
+
+    try {
+        const res = await axios.get(`${api}/lists/all-list-by-user/${listId}`);
+        dispatch({
+            type:'getSingleList',
+            payload:res.data
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
+}

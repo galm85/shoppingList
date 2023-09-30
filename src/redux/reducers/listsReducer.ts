@@ -17,6 +17,11 @@ export const listReducer = (state=initialState,action:Action)=>{
                 listReducer:newList
             }
 
+        case 'getAllLists':
+            return{
+                ...state,
+                lists:action.payload
+            }
 
 
         default: return state

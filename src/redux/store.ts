@@ -6,6 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //reducers
 import { productReducer } from './reducers/productsReducer';
 import { userReducer } from './reducers/usersReducer';
+import { listReducer } from './reducers/listsReducer';
 
 
 
@@ -17,7 +18,8 @@ const initialState = {};
 
 const rootReducer = combineReducers({
     productReducer,
-    userReducer
+    userReducer,
+    listReducer
 });
 
 

@@ -8,10 +8,11 @@ import AddProduct from './pages/admin/AddProduct';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import { useSelector } from 'react-redux';
+import MyLists from './pages/MyLists';
+import SingleList from './pages/SingleList';
 
 function App() {
 
-  const [myList,setMyList] = useState<Product[]>([]);
   const user:any  = useSelector((state:MainState)=>state.userReducer.user);
   
 
@@ -23,7 +24,9 @@ function App() {
         <Routes>
           {user ? 
           <>
-            <Route path='/new-list' element={<NewList setMyList={setMyList} />} />
+            <Route path='/new-list' element={<NewList  />} />
+            <Route path='/my-lists/:listName' element={<SingleList/>}/>
+            <Route path='/my-lists' element={<MyLists/>}/>
             <Route path='/admin/add-product' element={<AddProduct/>} />
            
           </>
@@ -35,7 +38,7 @@ function App() {
         
         }
          
-         <Route path='/' element={<Home myList={myList} />} />
+         <Route path='/' element={<Home  />} />
          
         </Routes>
        

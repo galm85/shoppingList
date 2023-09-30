@@ -7,11 +7,9 @@ import { getProducts } from '../redux/actions/productsActions';
 import { saveNewList } from '../redux/actions/listsActions';
 
 
-type Props = {
-    setMyList: React.Dispatch<React.SetStateAction<Product[]>>;
-  };
 
-const NewList: React.FC<Props> = ({ setMyList }) => {
+
+const NewList = () => {
 
     const navigate:any = useNavigate();
     const dispatch:any = useDispatch();
@@ -42,11 +40,13 @@ const NewList: React.FC<Props> = ({ setMyList }) => {
     }
 
     const handleSave = ()=>{
-        // setMyList(productList);
-        // navigate('/');
-        console.log(productList);
+        productList.forEach(item => {
+            item.checked = false;
+            delete item.updatedAt;
+            delete item.createdAt;
+        });
         const data = {
-            products:productList,
+            items:productList,
             userId:user._id,
             listName:listName ? listName : 'רשימה ללא שם',
         }
