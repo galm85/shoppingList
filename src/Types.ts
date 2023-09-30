@@ -8,8 +8,9 @@ export type Product = {
 
 
 export type List = {
-    id:number;
+    _id?:number;
     products:Product[];
+    listName:string;
 }
 
 
@@ -22,6 +23,7 @@ export type User = {
     createdAt?:string;
     updatedAt?:string;
 }
+
 
 
 
@@ -43,4 +45,9 @@ export type UserReducer = {
 
 export type ProductReducer = {
     products:[];
+}
+
+export type ListReducer = {
+    lists:List[];
+
 }

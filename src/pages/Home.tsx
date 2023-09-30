@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Product } from '../Types'
 import ProductDefault from '../assets/product-default.png';
+
+
 type Props = {
     myList:Product[];
 }

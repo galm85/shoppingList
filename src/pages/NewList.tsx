@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Product } from '../Types';
+import { MainState, Product } from '../Types';
 import { useNavigate} from 'react-router-dom';
 import DefaultProduct from '../assets/product-default.png';
 import { useSelector,useDispatch } from 'react-redux';
 import { getProducts } from '../redux/actions/productsActions';
+import { saveNewList } from '../redux/actions/listsActions';
 
 
 type Props = {
@@ -12,17 +13,24 @@ type Props = {
 
 const NewList: React.FC<Props> = ({ setMyList }) => {
 
+    const navigate:any = useNavigate();
+    const dispatch:any = useDispatch();
+    
+    const products = useSelector((state:MainState)=>state.productReducer.products);
+    const user = useSelector((state:MainState)=>state.userReducer.user);
+    
+    const [productList,setProductList] = useState<any[]>([]);
+    const [listName,setListName] = useState<string>('');
 
+
+    if(!user) navigate('/login');
    
 
     useEffect(()=>{
         dispatch(getProducts());
     },[])
 
-    const dispatch:any = useDispatch();
-    const products = useSelector((state:any)=>state.productReducer.products);
-    const navigate:any = useNavigate()
-    const [productList,setProductList] = useState<any[]>([]);
+    
 
     const handleChange = (e:any,product:Product)=>{
         let isChecked = e.target.checked;
@@ -34,12 +42,25 @@ const NewList: React.FC<Props> = ({ setMyList }) => {
     }
 
     const handleSave = ()=>{
-        setMyList(productList);
-        navigate('/');
+        // setMyList(productList);
+        // navigate('/');
+        console.log(productList);
+        const data = {
+            products:productList,
+            userId:user._id,
+            listName:listName ? listName : 'רשימה ללא שם',
+        }
+        dispatch(saveNewList(data))
+
     }
   return (
     <div className='page'>
-        <h2 className='page-title'>New List</h2>
+    
+        <h2 className='page-title'>צור רשימה חדשה</h2>
+        <div className='list-name'>
+            <input type="text" name="listName" id="ListName" placeholder='בחר שם לרשימה' onChange={(e:any)=>setListName(e.target.value)} />
+            <span></span>
+        </div>
         <div className="new-list">
             {products && products.map((product:Product)=>(
                 <div key={product._id} className='new-list-item'>

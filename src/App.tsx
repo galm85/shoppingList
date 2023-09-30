@@ -25,7 +25,7 @@ function App() {
           <>
             <Route path='/new-list' element={<NewList setMyList={setMyList} />} />
             <Route path='/admin/add-product' element={<AddProduct/>} />
-            <Route path='/' element={<Home myList={myList} />} />
+           
           </>
           :
           <>
@@ -35,7 +35,7 @@ function App() {
         
         }
          
-         
+         <Route path='/' element={<Home myList={myList} />} />
          
         </Routes>
        
