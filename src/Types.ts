@@ -11,3 +11,14 @@ export type List = {
     id:number;
     products:Product[];
 }
+
+
+export type User = {
+    _id?:string;
+    userName:string;
+    password?:string;
+    avatar:string;
+    isAdmin:boolean;
+    createdAt?:string;
+    updatedAt?:string;
+}
