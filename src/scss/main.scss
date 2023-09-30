@@ -51,6 +51,10 @@ $light-blue:#778da9;
 ////        General Classes               ////
 /////////////////////////////////////////////
 
+.page{
+    direction: rtl;
+}
+
 .page-title{
     text-align: center;
     margin: 20px 0;
@@ -94,5 +98,6 @@ $light-blue:#778da9;
 @import './_navbar.scss';
 @import './home';
 @import './newList';
+@import './admin';
 
 

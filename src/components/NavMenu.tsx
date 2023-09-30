@@ -60,6 +60,14 @@ export default function NavMenu() {
                   <ListItemText primary={'הרשימות שלי'} />
                   </ListItemButton>
               </ListItem>
+              <ListItem onClick={()=>navigateTo('/admin/add-product')}>
+                <ListItemButton>
+                  <ListItemIcon>
+                      <HomeIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary={'הוסף מוצר'} />
+                  </ListItemButton>
+              </ListItem>
           </List>
 
 
