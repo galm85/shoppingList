@@ -12,7 +12,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/usersActions';
-
+import { useSelector } from 'react-redux';
+import { MainState, User } from '../Types';
 
 
 export default function NavMenu() {
@@ -20,6 +21,7 @@ export default function NavMenu() {
   const navigate:any = useNavigate();
   const [openMenu,setOpenMenu] = React.useState<boolean>(false);
   const dispatch:any = useDispatch();
+  const user:User = useSelector((state:MainState)=>state.userReducer.user);
 
   const navigateTo = (url:string)=>{
     setOpenMenu(false);
@@ -37,9 +39,11 @@ export default function NavMenu() {
           >
 
           <div className='nav-menu-header'>
+            {user && <h4>{user.userName}</h4>}
             <h4>תפריט</h4>
           </div>
           <Divider/>
+          {user && 
           <List className='menu-link' style={{direction:'rtl'}}>
               <ListItem  onClick={()=>navigateTo('/')}>
                 <ListItemButton>
@@ -65,14 +69,6 @@ export default function NavMenu() {
                   <ListItemText primary={'הרשימות שלי'} />
                   </ListItemButton>
               </ListItem>
-              <ListItem onClick={()=>navigateTo('/admin/add-product')}>
-                <ListItemButton>
-                  <ListItemIcon>
-                      <HomeIcon/>
-                  </ListItemIcon>
-                  <ListItemText primary={'הוסף מוצר'} />
-                  </ListItemButton>
-              </ListItem>
               <ListItem onClick={()=>dispatch(logout())}>
                 <ListItemButton>
                   <ListItemIcon>
@@ -81,10 +77,45 @@ export default function NavMenu() {
                   <ListItemText primary={'התנתק'} />
                   </ListItemButton>
               </ListItem>
+              <Divider />
+              {user.isAdmin && 
+              <ListItem onClick={()=>navigateTo('/admin/add-product')}>
+                <ListItemButton>
+                  <ListItemIcon>
+                      <HomeIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary={'הוסף מוצר'} />
+                  </ListItemButton>
+              </ListItem>
+            } 
+
           </List>
+           
 
+          }
+          {!user && 
+          <List className='menu-link' style={{direction:'rtl'}}>
+          <ListItem  onClick={()=>navigateTo('/')}>
+            <ListItemButton>
+              <ListItemIcon>
+                  <HomeIcon/>
+              </ListItemIcon>
+              <ListItemText primary={'עמוד הבית'} />
+              </ListItemButton>
+          </ListItem>
+          <ListItem onClick={()=>navigateTo('/login')}>
+            <ListItemButton>
+              <ListItemIcon>
+                  <HomeIcon/>
+              </ListItemIcon>
+              <ListItemText primary={'התחבר'} />
+              </ListItemButton>
+          </ListItem>
+      </List>
+          
+          }
 
-      <Divider />
+   
       <List>
       
       </List>

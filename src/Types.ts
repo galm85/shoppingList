@@ -17,7 +17,7 @@ export type User = {
     _id?:string;
     userName:string;
     password?:string;
-    avatar:string;
+    avatar?:string;
     isAdmin:boolean;
     createdAt?:string;
     updatedAt?:string;
