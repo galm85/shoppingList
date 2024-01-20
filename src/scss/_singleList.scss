@@ -1,0 +1,42 @@
+.single-list-header{
+
+    
+    &__actions{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+
+.single-list-page{
+
+    .product-list{
+
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+
+        .item{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            h4{
+                flex:1;
+                padding-inline-start: 20px;
+                font-weight: $font-regular;
+
+            }
+            input{
+                height: 30px;
+                width: 30px;
+            }
+        }
+
+      
+
+        // .item:nth-child(even){
+        //     background-color: $light-blue;
+        // }
+    }
+}

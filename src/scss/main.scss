@@ -53,6 +53,11 @@ $light-blue:#778da9;
 
 .page{
     direction: rtl;
+    padding-inline: 40px;
+}
+
+.page-header{
+    padding-block: 20px;
 }
 
 .page-title{
@@ -87,6 +92,11 @@ $light-blue:#778da9;
     color: white;
 }
 
+.edit-btn{
+    background-color: yellow;
+    color: black;
+}
+
 
 
 
@@ -98,6 +108,7 @@ $light-blue:#778da9;
 @import './_navbar.scss';
 @import './home';
 @import './newList';
+@import './singleList';
 @import './admin';
 
 
