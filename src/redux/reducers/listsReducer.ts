@@ -1,8 +1,9 @@
-import { Action, ListReducer } from "../../Types"
+import { Action, List, ListReducer } from "../../Types"
 
 
 const initialState:ListReducer = {
-    lists:[]
+    lists:[],
+    currentList:{} as List,
 }
 
 export const listReducer = (state=initialState,action:Action)=>{
@@ -22,6 +23,39 @@ export const listReducer = (state=initialState,action:Action)=>{
                 ...state,
                 lists:action.payload
             }
+
+        case 'checkProductOnList':
+            return{
+                ...state,
+                currentList:action.payload
+            }
+
+
+        case 'getSingleList':
+            return{
+                ...state,
+                currentList:action.payload
+            }
+            
+        case 'updateList':
+            let updateLists = state.lists.map(list => {
+                    if(list._id === action.payload._id){
+                        return action.payload;
+                    }
+                    return list;
+            })
+            return{
+                ...state,
+                lists:updateLists
+            }
+        
+
+        case 'clearList':
+            return{
+                ...state,
+                currentList:action.payload
+            }
+        
 
 
         default: return state

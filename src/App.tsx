@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import { useSelector } from 'react-redux';
 import MyLists from './pages/MyLists';
 import SingleList from './pages/SingleList';
+import EditList from './pages/EditList';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='/new-list' element={<NewList  />} />
             <Route path='/my-lists/:listName' element={<SingleList/>}/>
             <Route path='/my-lists' element={<MyLists/>}/>
+            <Route path='/edit-list/:listName' element={<EditList/>}/>
             <Route path='/admin/add-product' element={<AddProduct/>} />
            
           </>

@@ -57,5 +57,6 @@ export type ProductReducer = {
 
 export type ListReducer = {
     lists:List[];
+    currentList:List;
 
 }
