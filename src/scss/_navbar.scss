@@ -1,9 +1,50 @@
 
 .navbar{
     height: 10vh;
-    background-color: aquamarine;
+    background-color: $blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+
+
+    &__title{
+        color: white;
+    }
+}
+
+
+.nav-menu-header{
+    background-color: $blue;
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 10vh;
+    padding-inline: 20px;
+}
+
+.menu-link{
+    background-color: $blue;
+    height: 100%;
+    color: white;
+    text-align: right;
+    min-width: 300px;
+
+    .MuiListItemIcon-root{
+        width: fit-content;
+        color: white;
+    }
+
+    .MuiListItemText-root{
+        text-align: start;
+    }
+
+    .link-icon{
+        width: 56px;
+      display: flex;
+      justify-content: start;
+      width: 30px;
+
+        background-color: red;
+    }
 }

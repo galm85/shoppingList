@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
 
-      <h3>Shopping List</h3>
+      <h3 className='navbar__title'>הקניות של אלמוג</h3>
 
       <div>
         <NavMenu/>

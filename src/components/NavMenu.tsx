@@ -9,6 +9,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import TocIcon from '@mui/icons-material/Toc';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/actions/usersActions';
@@ -30,7 +33,7 @@ export default function NavMenu() {
 
   return (
     <div>
-          <Button onClick={()=>setOpenMenu(true)}><MenuIcon/></Button>
+          <Button onClick={()=>setOpenMenu(true)}><MenuIcon style={{color:'white'}} /></Button>
           <SwipeableDrawer
             anchor='right'
             open={openMenu}
@@ -40,41 +43,40 @@ export default function NavMenu() {
 
           <div className='nav-menu-header'>
             {user && <h4>{user.userName}</h4>}
-            <h4>תפריט</h4>
           </div>
-          <Divider/>
+          <Divider />
           {user && 
-          <List className='menu-link' style={{direction:'rtl'}}>
+          <List className='menu-link'>
               <ListItem  onClick={()=>navigateTo('/')}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <HomeIcon />
                   </ListItemIcon>
-                  <ListItemText primary={'עמוד הבית'} />
+                  <ListItemText  primary={'עמוד הבית'} />
                   </ListItemButton>
               </ListItem>
               <ListItem onClick={()=>navigateTo('/new-list')}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <AddCircleIcon/>
                   </ListItemIcon>
-                  <ListItemText primary={'רשימה חדשה'} />
+                  <ListItemText  primary={'רשימה חדשה'} />
                   </ListItemButton>
               </ListItem>
               <ListItem onClick={()=>navigateTo('/my-lists')}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <TocIcon/>
                   </ListItemIcon>
-                  <ListItemText primary={'הרשימות שלי'} />
+                  <ListItemText  primary={'הרשימות שלי'} />
                   </ListItemButton>
               </ListItem>
               <ListItem onClick={()=>dispatch(logout())}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <LogoutIcon/>
                   </ListItemIcon>
-                  <ListItemText primary={'התנתק'} />
+                  <ListItemText  primary={'התנתק'} />
                   </ListItemButton>
               </ListItem>
               <Divider />
