@@ -11,6 +11,9 @@ import { useSelector } from 'react-redux';
 import MyLists from './pages/MyLists';
 import SingleList from './pages/SingleList';
 import EditList from './pages/EditList';
+import Footer from './components/Footer';
+import AllProducts from './pages/admin/AllProducts';
+import EditProduct from './pages/admin/EditProduct';
 
 function App() {
 
@@ -29,8 +32,9 @@ function App() {
             <Route path='/my-lists/:listName' element={<SingleList/>}/>
             <Route path='/my-lists' element={<MyLists/>}/>
             <Route path='/edit-list/:listName' element={<EditList/>}/>
+            <Route path="/admin/all-products" element={<AllProducts/>}/>
             <Route path='/admin/add-product' element={<AddProduct/>} />
-           
+            <Route path='/admin/edit-product/:productTitle' element={<EditProduct/>}/>
           </>
           :
           <>
@@ -46,9 +50,7 @@ function App() {
        
       </main>
 
-      <footer>
-        Gal
-      </footer>
+        <Footer/>
     </div>
   );
 }

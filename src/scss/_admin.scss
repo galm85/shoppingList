@@ -60,3 +60,22 @@
         
     }
 }
+
+
+.admin-all-products{
+
+    .all-products-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        .product-item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            p{
+                text-align: center;
+            }
+        }
+    }
+}

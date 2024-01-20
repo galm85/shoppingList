@@ -3,12 +3,14 @@ import { User } from '../Types'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../redux/actions/usersActions';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
     const [user,setUser] = useState<User>({} as User);
     const [error,setError] = useState<User>({} as User);
     const dispatch:any = useDispatch();
+    const navigate:any = useNavigate();
 
 
     const handleChange = (e:any)=>{
@@ -44,18 +46,16 @@ const Register = () => {
     }
 
   return (
-    <div className='page'>
-        <h2>הרשם</h2>
+    <div className='page login-page'>
+        <h2 className='page-title'>הרשם</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form className='login-form' onSubmit={handleSubmit}>
             <div className="input-group">
-                <label htmlFor="firstName">שם</label>
-                <input type="text" name="userName" id="userName" onChange={handleChange} autoComplete='off'/>
+                <input type="text" name="userName" placeholder='שם' id="userName" onChange={handleChange} autoComplete='off'/>
                 <div>{error.userName}</div>
             </div>
             <div className="input-group">
-                <label htmlFor="password">סיסמה</label>
-                <input type="password" name="password" id="password" onChange={handleChange} autoComplete='off' />
+                <input type="password" name="password" placeholder='סיסמה' id="password" onChange={handleChange} autoComplete='off' />
                 <div>{error.password}</div>
             </div>
             <div className="input-group">
@@ -67,11 +67,14 @@ const Register = () => {
                 </select>
                 <span></span>
             </div>
-            <div>
-                <button type='submit'>שמור</button>
-                <button type='button'>בטל</button>
+            <div className='login-form-actions'>
+                <button className='btn save-btn' type='submit'>הרשם</button>
+                <button className='btn delete-btn' type='button'>בטל</button>
             </div>
         </form>
+        <div className="redirect">
+            <p>יש לך חשבון? <span onClick={()=>navigate('/login')}>לחץ כאן</span></p>
+        </div>
     </div>
   )
 }

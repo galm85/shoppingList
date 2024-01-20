@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { List, MainState, User } from '../Types';
 import { useSelector } from 'react-redux';
-import { getAllLists } from '../redux/actions/listsActions';
+import { deleteList, getAllLists } from '../redux/actions/listsActions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -19,6 +19,14 @@ const MyLists = () => {
         }
     },[])
 
+    const DeleteTheList = (e:any,listId:any)=>{
+        e.stopPropagation();
+        const result = window.confirm('האם למחוק את הרשימה?');
+        if(result){
+            dispatch(deleteList(listId))
+        }
+    }
+
   return (
     <div className='page my-lists-page'>
         <h2 className='page-title'>{'הרשימות של  '+user.userName}</h2>
@@ -27,7 +35,7 @@ const MyLists = () => {
                 <div className='my-lists__list' key={list._id} onClick={()=>{navigate(`/my-lists/${list.listName}`,{state:{list}})}}>
                     <h3>{list.listName} </h3>
                     <span>( {list.items.length} )</span> 
-                    <button><DeleteForeverIcon style={{color:'red'}}/></button>
+                    <button className='delete-list-btn' onClick={(e)=>DeleteTheList(e,list._id)}><DeleteForeverIcon style={{color:'red'}}/></button>
                 </div>
             ))}
         </div>

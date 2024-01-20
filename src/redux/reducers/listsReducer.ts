@@ -55,6 +55,12 @@ export const listReducer = (state=initialState,action:Action)=>{
                 ...state,
                 currentList:action.payload
             }
+
+        case 'deleteList':
+            return{
+                ...state,
+                lists: state.lists.filter(list => list._id !== action.payload)
+            }
         
 
 

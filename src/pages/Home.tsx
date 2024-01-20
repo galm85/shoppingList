@@ -21,6 +21,8 @@ const Home = () => {
   useEffect(()=>{
     if(user && user._id){
       navigate('/my-lists');
+    }else{
+      navigate('/login');
     }
   },[]);
 

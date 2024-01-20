@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { ListItem, MainState } from '../Types';
 import { useDispatch,useSelector } from 'react-redux';
 import { checkProductOnList, getSingleList,clearList } from '../redux/actions/listsActions';
-//this is a test
+import DefaultProduct from '../assets/product-default.png';
+
 
 
 const SingleList = () => {
@@ -37,14 +38,15 @@ const SingleList = () => {
         <div className="page-header single-list-header">
             <h1 className='page-title'>{currentList?.listName}</h1>
             <div className="single-list-header__actions">
-                <button className='btn edit-btn' onClick={()=>navigate(`/edit-list/${currentList?.listName}`,{state:{list:currentList}})}>Update List</button>
-                <button className='btn delete-btn' onClick={()=>clearTheList()}>Clear List</button>
+                <button className='btn edit-btn' onClick={()=>navigate(`/edit-list/${currentList?.listName}`,{state:{list:currentList}})}>עדכון רשימה</button>
+                <button className='btn delete-btn' onClick={()=>clearTheList()}>נקה רשימה</button>
             </div>
         </div>
         <div className="product-list">
             {currentList.items && currentList.items.map((product)=>(
-                <div className='item' key={product._id}>
-                    <img style={{width:"50px"}} src={product?.image} alt={product.title} />
+                <div className="item" key={product._id}>
+                    {product.checked && <div className='checked-item'></div>}
+                    <img style={{width:'50px'}} src={product.image ? product.image : DefaultProduct} alt={product.title}/>
                     <h4>{product?.title}</h4>
                     <input type="checkbox" id={product._id} checked={product.checked}  onChange={(e)=>handleChange(e,product)} />
                 </div>

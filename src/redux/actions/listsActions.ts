@@ -105,3 +105,17 @@ export const clearList = (list:any)=>async(dispatch:any)=>{
         console.log(e);
     }
 }
+
+export const deleteList = (listId:string)=>async(dispatch:any)=>{
+    try {
+        const res  =  await axios.delete(`${api}/lists/delete-list/${listId}`);
+        if(res.status === 200){
+            dispatch({
+                type:"deleteList",
+                payload:listId,
+            })
+        }
+    } catch (error) {
+        
+    }
+}

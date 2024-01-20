@@ -74,14 +74,14 @@ const EditList = () => {
     
         <h2 className='page-title'>Edit</h2>
         <div className='list-name'>
-            <input type="text" name="listName" id="ListName" placeholder='בחר שם לרשימה'value={listName} onChange={(e:any)=>setListName(e.target.value)} />
+            <input className='edit-list-input' type="text" name="listName" id="ListName" placeholder='בחר שם לרשימה'value={listName} onChange={(e:any)=>setListName(e.target.value)} />
             <span></span>
         </div>
         
         <div className="new-list">
             {products && products.map((product:Product)=>(
                 <div key={product._id} className='new-list-item'>
-                    <img src={product.image} alt={product.title}/>
+                    <img src={product.image ? product.image : DefaultProduct} alt={product.title}/>
                     <label htmlFor={`product-${product._id}`}>{product.title}</label>
                     <input type="checkbox" id={`product-${product._id}`} onChange={(e)=>handleChange(e,product)} checked={isOnList(product._id)} />
                 </div>

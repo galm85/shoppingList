@@ -64,7 +64,7 @@ const NewList = () => {
         <div className="new-list">
             {products && products.map((product:Product)=>(
                 <div key={product._id} className='new-list-item'>
-                    <img src={product.image} alt={product.title}/>
+                    <img src={product.image ? product.image : DefaultProduct} alt={product.title}/>
                     <label htmlFor={`product-${product._id}`}>{product.title}</label>
                     <input type="checkbox" id={`product-${product._id}`} onChange={(e)=>handleChange(e,product)} />
                 </div>

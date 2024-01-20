@@ -81,14 +81,24 @@ export default function NavMenu() {
               </ListItem>
               <Divider />
               {user.isAdmin && 
+              <>
+              <ListItem onClick={()=>navigateTo('/admin/all-products')}>
+                <ListItemButton>
+                  <ListItemIcon>
+                      <HomeIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary={'מאגר המוצרים'} />
+                  </ListItemButton>
+              </ListItem>
               <ListItem onClick={()=>navigateTo('/admin/add-product')}>
                 <ListItemButton>
                   <ListItemIcon>
                       <HomeIcon/>
                   </ListItemIcon>
-                  <ListItemText primary={'הוסף מוצר'} />
+                  <ListItemText primary={'הוסף מוצא למאגר'} />
                   </ListItemButton>
               </ListItem>
+              </>
             } 
 
           </List>
