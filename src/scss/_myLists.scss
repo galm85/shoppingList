@@ -1,0 +1,23 @@
+.my-lists-page{
+    height: 80vh;
+    overflow: scroll;
+    padding-top: 20px;
+    
+
+    .my-lists{
+        display: flex;
+        flex-direction: column;
+
+        &__list{
+            margin-bottom:20px;
+            display: flex;
+            color: $blue;
+            font-weight: $font-regular;
+
+            span{
+                padding-inline-start: 10px;
+                flex:1;
+            }
+        }
+    }
+}
