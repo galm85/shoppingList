@@ -9,7 +9,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
+import LoginIcon from '@mui/icons-material/Login';
+import StorageIcon from '@mui/icons-material/Storage';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import TocIcon from '@mui/icons-material/Toc';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
@@ -85,7 +88,7 @@ export default function NavMenu() {
               <ListItem onClick={()=>navigateTo('/admin/all-products')}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <StorageIcon/>
                   </ListItemIcon>
                   <ListItemText primary={'מאגר המוצרים'} />
                   </ListItemButton>
@@ -93,7 +96,7 @@ export default function NavMenu() {
               <ListItem onClick={()=>navigateTo('/admin/add-product')}>
                 <ListItemButton>
                   <ListItemIcon>
-                      <HomeIcon/>
+                      <AddCircleOutlineIcon/>
                   </ListItemIcon>
                   <ListItemText primary={'הוסף מוצא למאגר'} />
                   </ListItemButton>
@@ -118,7 +121,7 @@ export default function NavMenu() {
           <ListItem onClick={()=>navigateTo('/login')}>
             <ListItemButton>
               <ListItemIcon>
-                  <HomeIcon/>
+                  <LoginIcon/>
               </ListItemIcon>
               <ListItemText primary={'התחבר'} />
               </ListItemButton>

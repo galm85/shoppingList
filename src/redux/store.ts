@@ -7,8 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { productReducer } from './reducers/productsReducer';
 import { userReducer } from './reducers/usersReducer';
 import { listReducer } from './reducers/listsReducer';
-
-
+import { settingReducer } from './reducers/settingsReducer'; 
 
 
 
@@ -19,13 +18,14 @@ const initialState = {};
 const rootReducer = combineReducers({
     productReducer,
     userReducer,
-    listReducer
+    listReducer,
+    settingReducer
 });
 
 
 const store = createStore(rootReducer,initialState,compose(
     applyMiddleware(...middleware),
-    composeWithDevTools(),
+    // composeWithDevTools(),
 ))
 
 

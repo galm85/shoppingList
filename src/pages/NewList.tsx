@@ -56,9 +56,9 @@ const NewList = () => {
   return (
     <div className='page'>
     
-        <h2 className='page-title'>צור רשימה חדשה</h2>
+        <h2 className='page-title'>יצירת רשימה חדשה</h2>
         <div className='list-name'>
-            <input type="text" name="listName" id="ListName" placeholder='בחר שם לרשימה' onChange={(e:any)=>setListName(e.target.value)} />
+            <input type="text" name="listName" id="ListName" placeholder=' שם הרשימה' onChange={(e:any)=>setListName(e.target.value)} />
             <span></span>
         </div>
         <div className="new-list">

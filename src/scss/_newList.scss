@@ -1,17 +1,40 @@
 
+.list-name{
+    input{
+        width: 100%;
+        border:none;
+        border-bottom: 1px solid $blue;
+        padding: 5px 10px;
+        outline: none;
+        color: $blue;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        &::placeholder{
+            color: rgba(0, 0, 0, 0.347);
+            font-family: $main-font;
+            font-size: 18px;
+        }
+        &:focus{
+            background-color: aliceblue;
+            border-radius: 5px;
+        }
+    }
+}
 
 .new-list{
     width: 100%;
     height: 100%;
-    padding: 15px 0;
-
+    margin-top: 15px;
+    height: 55vh;
+    overflow: scroll;
 
     &-item{
         display: flex;
         align-items: center;
         margin: 15px 0;
+        height: 50px;
         img{
-            width: 50px;
+            width: 40px;
             margin-right: 20px;
             object-fit: cover;
         }
@@ -31,5 +54,5 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 40px 0;
+    margin: 20px 0 -10px 0;
 }

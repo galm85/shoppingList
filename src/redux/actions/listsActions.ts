@@ -5,14 +5,16 @@ const api = process.env.REACT_APP_API_URL;
 export const saveNewList = (list:any)=>async(dispatch:any)=>{
     
     try{
+        dispatch({type:'startLoad'});
         const res = await axios.post(`${api}/lists`,list);
         dispatch({
             type:'saveNewList',
             payload:res.data
         })
-        alert(res.data.message);
+        dispatch({type:'endLoad'});
         window.location.href ='./';
     }catch(e:any){
+        dispatch({type:'endLoad'});
         console.log(e);
     }
 }
@@ -72,14 +74,16 @@ export const checkProductOnList = (listId:string,productId:string)=>async(dispat
 export const updateList = (list:any)=>async(dispatch:any)=>{
    
     try{
+        dispatch({type:'startLoad'});
         const res = await axios.patch(`${api}/lists/update-exist-list/${list._id}`,list);
         dispatch({
             type:'updateList',
             payload:list
         })
-        alert(res.data.message);
+        dispatch({type:'endLoad'});
         window.location.href ='/';
     }catch(e:any){
+        dispatch({type:'endLoad'});
         console.log(e);
     }
 }
@@ -93,21 +97,26 @@ export const clearList = (list:any)=>async(dispatch:any)=>{
     });
     list.items = updatedItems;
     try{
+        dispatch({type:'startLoad'});
         const res = await axios.patch(`${api}/lists/update-exist-list/${list._id}`,list);
-        dispatch({
-            type:'clearList',
-            payload:list
-        })
-        alert(res.data.message);
-        window.location.reload();
+       if(res.status === 200){
+
+           dispatch({
+               type:'clearList',
+               payload:list
+            })
+            dispatch({type:'endLoad'});
+            // window.location.reload();
+        }
 
     }catch(e:any){
-        console.log(e);
+        dispatch({type:'endLoad'});
     }
 }
 
 export const deleteList = (listId:string)=>async(dispatch:any)=>{
     try {
+        dispatch({type:'startLoad'});
         const res  =  await axios.delete(`${api}/lists/delete-list/${listId}`);
         if(res.status === 200){
             dispatch({
@@ -115,7 +124,9 @@ export const deleteList = (listId:string)=>async(dispatch:any)=>{
                 payload:listId,
             })
         }
+        dispatch({type:'endLoad'});
     } catch (error) {
-        
+        dispatch({type:'endLoad'});
+                
     }
 }

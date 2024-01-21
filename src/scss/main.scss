@@ -18,7 +18,9 @@ $light-blue:#778da9;
 
 
 
-
+body{
+    font-family: $main-font;
+}
 
 *{
     padding: 0;
@@ -36,6 +38,7 @@ $light-blue:#778da9;
 
     main{
         min-height: 80vh;
+        
     }
 
     footer{
@@ -62,13 +65,76 @@ $light-blue:#778da9;
 
 .page-header{
     padding-block: 20px;
+  
 }
 
 .page-title{
     text-align: center;
     margin: 20px 0;
+    color: $blue;
+    font-weight: 700;
 }
 
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 20;
+    justify-content: center;
+    .circle{
+        margin:auto;
+        margin-top: 50%;
+    }
+}
+
+.message{
+    position: relative;
+    z-index:10;
+    background-color: green;
+    color:white;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 20px;
+}
+
+
+.dialog{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 25;
+    background-color: rgba(0,0,0,0.7);
+    top:0;
+    left:0;
+    &__container{
+        background-color: white;
+        position: relative;
+        top:20vh;
+        min-height: 300px;
+        padding: 20px;   
+        margin-inline:30px;
+        border-radius: 20px;
+        background-color: rgba(29, 53, 87,.9);  
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    &__question{
+        text-align: center;
+        color: white;
+    }
+    p{
+        color: white;
+    }
+
+    &__options{
+        margin-top: 150px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
 
 // buttons
 

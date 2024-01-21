@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate,useLocation } from 'react-router-dom';
 import { deleteProduct, updateProduct } from '../../redux/actions/productsActions';
 import { useDispatch } from 'react-redux';
+import Dialog from '../../components/Dialog';
 
 
 
@@ -17,6 +18,8 @@ const EditProduct = () => {
     const [imagePreview,setImagePreview] = useState<string>('');
     const fileInputRef = useRef<any>(null);
     const dispatch:any = useDispatch();
+
+    const [openDialog,setOpenDialog] = useState<boolean>(false);
    
     const handleImage = (e:any)=>{
         const selectedImage = e.target.files[0];
@@ -57,10 +60,17 @@ const EditProduct = () => {
 
     }
 
+    const removeProduct = ()=>{
+        let result = window.confirm('למחוק את המוצר?');
+        if(result){
+            dispatch(deleteProduct(newProduct._id))
+        }
+    }
+
 
 
   return (
-    <div className='page'>
+    <div className='page edit-product-page'>
         <div className="page-title">
            עריכת מוצר
         </div>
@@ -99,8 +109,11 @@ const EditProduct = () => {
         </form>
 
         <div className="delete-product">
-            <button onClick={()=>dispatch(deleteProduct(newProduct._id))}>Delete</button>
+            <button onClick={()=>setOpenDialog(true)}>מחיקת מוצר</button>
         </div>
+
+
+        <Dialog isOpen={openDialog} setIsOpen={setOpenDialog} question='האם למחוק את המוצר?' content='המוצר ימחק לצמיתות'  action={deleteProduct} params={[newProduct._id]} />
     </div>
   )
 }

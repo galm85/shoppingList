@@ -7,7 +7,7 @@
     .my-lists{
         display: flex;
         flex-direction: column;
-
+        padding-top: 20px;
         &__list{
             margin-bottom:20px;
             display: flex;
@@ -25,5 +25,15 @@
             border:none;
             background: none;
         }
+    }
+
+
+    .add-new-list-btn{
+        color: $blue;
+        border:none;
+        background:none;
+        position: absolute;
+        top:14vh;
+        left: 25px;
     }
 }

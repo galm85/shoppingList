@@ -45,6 +45,7 @@ export type MainState = {
     productReducer:ProductReducer;
     userReducer:UserReducer;
     listReducer:ListReducer;
+    settingReducer:SettingReducer;
 }
 
 export type UserReducer = {
@@ -59,4 +60,9 @@ export type ListReducer = {
     lists:List[];
     currentList:List;
 
+}
+
+export type SettingReducer = {
+    loader:boolean;
+    message:string;
 }

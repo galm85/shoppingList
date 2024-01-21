@@ -14,16 +14,21 @@ import EditList from './pages/EditList';
 import Footer from './components/Footer';
 import AllProducts from './pages/admin/AllProducts';
 import EditProduct from './pages/admin/EditProduct';
+import Loader from './components/Loader';
+import Dialog from './components/Dialog';
 
 function App() {
 
   const user:any  = useSelector((state:MainState)=>state.userReducer.user);
-  
-
+  const loader:boolean = useSelector((state:MainState)=>state.settingReducer.loader);
+  const message:string = useSelector((state:MainState)=>state.settingReducer.message);
   return (
     <div className="App">
-      <Navbar/>      
+      <Navbar/> 
 
+      {message && <div className='message'>{message}</div>}
+      {loader && <Loader/>}
+      
       <main>
         <Routes>
           {user ? 

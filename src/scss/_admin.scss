@@ -1,4 +1,43 @@
-// add new product page
+.admin-all-products{
+    display: flex;
+    flex-direction: column;
+    .all-products-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: scroll;
+        height: 80vh;
+        .product-item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            img{
+                width: 100px;
+                height: 100px;
+                object-fit:contain;
+            }
+
+            p{
+                text-align: center;
+            }
+        }
+    }
+
+    .add-new-product{
+        position: absolute;
+        top:12vh;
+        z-index: 10;
+        left: 25px;
+        background: none;
+        border: none;
+        color: $blue;
+    }
+}
+
+
+
+
 .new-product-form{
     width: 90%;
     margin: auto;
@@ -26,7 +65,7 @@
 
     .image-preview{
         width: 90%;
-        height: 200px;
+        height: 150px;
         position: relative;
         margin: auto;
         img{
@@ -62,20 +101,21 @@
 }
 
 
-.admin-all-products{
 
-    .all-products-container{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
 
-        .product-item{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            p{
-                text-align: center;
-            }
+.edit-product-page{
+    .delete-product{
+        width: 100%;
+        button{
+            background-color: $red;
+            color: white;
+            border: none;
+            width: 100%;
+            height: 50px;
+            border-radius: 20px;
+            margin-top: 50px;
+            font-size: 20px;
+            font-weight: 300;
         }
     }
 }

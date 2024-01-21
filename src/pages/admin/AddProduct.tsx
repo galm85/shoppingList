@@ -49,13 +49,8 @@ const AddProduct = () => {
 
             const data = new FormData();
             data.append('title',newProduct.title);
-            data.append('image',newProduct.image);
-            
-            dispatch(addProduct(data));
-            // const res:any = await axios.post('http://localhost:4000/api/shopping-list/products',data);
-            // alert(res.data.message);
-            // navigate('/');
-            
+            data.append('image',newProduct.image ? newProduct.image : '');
+            dispatch(addProduct(data));            
         }catch(e:any){
             alert(e.response.data.message)
         }

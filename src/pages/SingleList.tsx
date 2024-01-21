@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ListItem, MainState } from '../Types';
 import { useDispatch,useSelector } from 'react-redux';
 import { checkProductOnList, getSingleList,clearList } from '../redux/actions/listsActions';
 import DefaultProduct from '../assets/product-default.png';
+import Dialog from '../components/Dialog';
 
 
 
@@ -14,7 +15,7 @@ const SingleList = () => {
     const dispatch:any = useDispatch();
     const currentList = useSelector((state:MainState)=>state.listReducer.currentList);
     const navigate:any = useNavigate();
-
+    const [isOpenDialog,setIsOpenDialog] = useState<boolean>(false);
 
     useEffect(()=>{
         dispatch(getSingleList(list._id))
@@ -26,11 +27,12 @@ const SingleList = () => {
     }
 
     const clearTheList = ()=>{
-           const result = window.confirm('Are you sure clear the list?');
-           if(result){
-            dispatch(clearList(currentList))
+        setIsOpenDialog(true);
+        //    const result = window.confirm('Are you sure clear the list?');
+        //    if(result){
+        //     dispatch(clearList(currentList))
             
-           }
+        //    }
     }
 
   return (
@@ -53,6 +55,14 @@ const SingleList = () => {
             ))}
             
         </div>
+
+        <Dialog  isOpen = {isOpenDialog}
+                setIsOpen={setIsOpenDialog}
+                question = " האם לנקות את הרשימה?" 
+                content= " והתחלת הקנייה מחדש ,ניקוי כל הריבועים"
+                action ={clearList}
+                params = {[currentList]}
+                />
     </div>
   )
 }
