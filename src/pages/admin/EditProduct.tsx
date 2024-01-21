@@ -2,6 +2,8 @@ import { Divider } from '@mui/material';
 import {FormEvent, useRef, useState} from 'react'
 import axios from 'axios';
 import { useNavigate,useLocation } from 'react-router-dom';
+import { deleteProduct, updateProduct } from '../../redux/actions/productsActions';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -14,7 +16,7 @@ const EditProduct = () => {
     const [error,setError] = useState<string>('');
     const [imagePreview,setImagePreview] = useState<string>('');
     const fileInputRef = useRef<any>(null);
-
+    const dispatch:any = useDispatch();
    
     const handleImage = (e:any)=>{
         const selectedImage = e.target.files[0];
@@ -47,10 +49,7 @@ const EditProduct = () => {
             data.append('title',newProduct.title);
             data.append('image',newProduct.image);
             
-            console.log(newProduct);
-            const res:any = await axios.post('http://localhost:4000/api/shopping-list/products',data);
-            alert(res.data.message);
-            navigate('/');
+            dispatch(updateProduct(data,newProduct._id));
             
         }catch(e:any){
             alert(e.response.data.message)
@@ -98,6 +97,10 @@ const EditProduct = () => {
            
             </div>
         </form>
+
+        <div className="delete-product">
+            <button onClick={()=>dispatch(deleteProduct(newProduct._id))}>Delete</button>
+        </div>
     </div>
   )
 }

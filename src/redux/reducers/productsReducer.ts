@@ -1,3 +1,4 @@
+import { Product } from "../../Types"
 
 
 const initialState = {
@@ -14,7 +15,11 @@ export const productReducer = (state=initialState,action:any)=>{
                 products:action.payload
             }
 
-
+        case 'deleteProduct':
+            return{
+                ...state,
+                products: state.products.filter((product:Product) => product._id !== action.payload)
+            }
 
         default: return state
     }
