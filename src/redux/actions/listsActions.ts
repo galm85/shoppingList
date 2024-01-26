@@ -81,7 +81,7 @@ export const updateList = (list:any)=>async(dispatch:any)=>{
             payload:list
         })
         dispatch({type:'endLoad'});
-        window.location.href ='/';
+        window.location.href ='./';
     }catch(e:any){
         dispatch({type:'endLoad'});
         console.log(e);

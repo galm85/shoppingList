@@ -27,7 +27,7 @@ export const deleteProduct = (productId:string)=>async(dispatch:any)=>{
                 payload:productId
             });
             dispatch({type:'endLoad'});
-            window.location.href = '/admin/all-products';
+            window.location.href = './admin/all-products';
 
         }
     } catch (error) {
@@ -42,7 +42,7 @@ export const updateProduct = (product:any,productId:string)=>async(dispatch:any)
         dispatch({type:'startLoad'});
         const res = await axios.patch(`${api}/products/${productId}`,product);
         if(res.status === 200){
-            window.location.href = '/admin/all-products';
+            window.location.href = './admin/all-products';
         }
         dispatch({type:'endLoad'});
     } catch (error:any) {
@@ -62,7 +62,7 @@ export const addProduct = (product:any)=>async(dispatch:any)=>{
         if(res.status === 200){
             dispatch({type:'endLoad'});
             dispatch({type:'addMessage',payload:res.data.message});
-            window.location.href = '/admin/all-products';
+            window.location.href = './admin/all-products';
             setTimeout(()=>{
                 dispatch({type:'addMessage',payload:''});
             },2000)

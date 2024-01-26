@@ -37,7 +37,7 @@ export const signinUser = (user:any)=>async(dispatch:any)=>{
             payload:loggeUser
         });
 
-        window.location.href = '/';
+        window.location.href = './';
 
     }catch(e:any){
         console.log(e);
@@ -54,7 +54,7 @@ export const logout = ()=>async(dispatch:any)=>{
             type:'logout',
         });
 
-        window.location.href ='/';
+        window.location.href ='./';
 
     }catch(e:any){
         console.log(e);
